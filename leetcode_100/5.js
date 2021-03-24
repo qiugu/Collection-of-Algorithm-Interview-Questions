@@ -36,18 +36,24 @@ var longestPalindrome = function(s) {
 var longestPalindrome = function(s) {
   const n = s.length;
   let start = 0, end = 0;
+
   const expandAround = (l, r) => {
       while (l >= 0 && r < n && s[l] === s[r]) {
           l--;
           r++;
       }
+      // 扩展方法得到的l,r实际是不满足回文串以后的两边位置
+      // 所以并不是r-l+1,而是r-l-1
       return r - l - 1;
   }
+
   for(let i = 0; i < n; i++) {
       const len1 = expandAround(i, i);
       const len2 = expandAround(i, i+1);
       const maxLen = Math.max(len1,len2);
       if (maxLen > end - start) {
+          // 如果以两个字符为中心扩展的情况，如字符串cbb，以bb为中，得到长度为2,
+          // 1-(2-1)/2 = 1 否则的话则变成1-2/2 = 0，结果就不正确
           start = i - Math.floor((maxLen - 1) / 2);
           end = i + Math.floor(maxLen / 2);
       }
