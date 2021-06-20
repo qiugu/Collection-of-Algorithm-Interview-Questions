@@ -61,4 +61,4 @@ var longestPalindrome = function(s) {
   return s.slice(start, end + 1);
 };
 
-console.log(longestPalindrome('ababd'));
+console.log(longestPalindrome("babad"));
