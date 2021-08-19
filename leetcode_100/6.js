@@ -1,5 +1,6 @@
 /**
  * Z字形变换
+ * https://leetcode-cn.com/problems/zigzag-conversion/
  * @param {*} s 
  * @param {*} numRows 
  * @returns 

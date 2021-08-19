@@ -5,6 +5,7 @@ function ListNode(val, next) {
 }
 /**
  * 旋转链表
+ * https://leetcode-cn.com/problems/rotate-list/
  * @param {*} head 
  * @param {*} k 
  * @returns 

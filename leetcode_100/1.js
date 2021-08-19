@@ -1,8 +1,12 @@
 /**
  * 两数之和
+ * https://leetcode-cn.com/problems/two-sum/
+ * @param {*} nums 
+ * @param {*} target 
+ * @returns 
  */
-// 1. hash表，备忘录
 var twoSum = function(nums, target) {
+  // 1. hash表，备忘录
   const memo = new Map();
   for(let i = 0; i < nums.length; i++) {
     // 判断目标值减去当前项得到的差值是否在备忘录中
