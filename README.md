@@ -36,4 +36,18 @@ npm run start 1 [2,3,4,5] 7
 
 ### 注意事项
 
-目前链表和树保持和`leetcode`一致，使用数组表示，内部会转换成对应结构
+- 目前链表和树保持和`leetcode`一致，使用数组表示，内部会转换成对应结构
+- 方法注释严格按照实例来写，否则参数无法匹配，导致出错
+
+```javascript
+/*
+* 题目名称
+* 题目链接
+* @param {参数类型} params1 不是ListNode和TreeNode类型时，参数类型可以忽略
+* @param {类型} params2
+* @returns 返回类型可以写，也可以忽略，不参与计算
+*/
+function solution(params1, params2) {
+  
+}
+```
