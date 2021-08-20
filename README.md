@@ -1,5 +1,39 @@
 # Collection-of-Algorithm-Interview-Questions
 
-进击大厂算法面试题
+进击大厂算法面试题JavaScript版题解
 
-目前刷完leetcode前100题，会详细说明解题思路，以及关注如何培养解题思路
+包括解题的方法，以及详细的注释。可以自己启动项目，尝试本项目提供的自动执行得到结果的脚本来测试你的方法。
+
+## 如何使用
+
+### 下载克隆项目
+
+```sh
+git clone https://github.com/qiugu/Collection-of-Algorithm-Interview-Questions.git
+```
+
+### 安装依赖
+
+```sh
+yarn
+```
+
+### 启动项目
+
+```sh
+npm run start 1 [2,3,4,5] 7
+```
+
+`start`启动参数后面的参数表示题目序号，之后所有的参数表示题目的输入参数
+
+得到执行结果：
+
+```
+[INFO]开始执行！
+[INFO]执行结果为: 1,2
+[INFO]执行结束！
+```
+
+### 注意事项
+
+目前链表和树保持和`leetcode`一致，使用数组表示，内部会转换成对应结构

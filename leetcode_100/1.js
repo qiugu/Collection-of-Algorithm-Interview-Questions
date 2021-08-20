@@ -22,5 +22,4 @@ var twoSum = function(nums, target) {
 
 // 2. 暴力遍历
 
-// 测试
-console.log(twoSum([20,18,4,5,8,12,22], 16));
+module.exports = twoSum;
