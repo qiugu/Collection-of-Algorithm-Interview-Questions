@@ -53,17 +53,17 @@ const topic = require(topicPath);
 // 判断题目方法的参数合法性
 if (topic.length != topicParams.length) {
   console.error(chalk.red('[ERROR]指定参数与方法参数数量不匹配！'));
-  process.exit(0);
+  process.exit(1);
 }
 
 // 判断题目序号参数合法性
 if (topicIndex == null || topicIndex == undefined) {
   console.error(chalk.red('[ERROR]请指定题目的序号！'));
-  process.exit(0);
+  process.exit(1);
 }
 if (!/\d/.test(topicIndex)) {
   console.error(chalk.red('[ERROR]题目序号请输入数字！'));
-  process.exit(0);
+  process.exit(1);
 }
 
 console.log(chalk.green(`[INFO]开始执行！`));
@@ -79,16 +79,16 @@ const topicContent = fs.readFileSync(topicAbsolutePath, 'utf-8');
 // TODO 正则匹配出@param后面的参数，写不出来orz...暂时提取整个注释的内容后再去判断
 const matchParamsType = topicContent.match(/\/\*[^]*?\*\//g)[0].split('\n');
 const transformParam = [];
-// 除去第一行和最后一行，它们分别是多行注释的'/*'、'*/'
-for (let i = 1; i < matchParamsType.length - 1; i++) {
+// 除去不是参数的行注释，它们分别是多行注释的'/*'、'*/'，以及题目名，链接地址
+for (let i = 3; i < matchParamsType.length - 1; i++) {
   const t = matchParamsType[i];
-  if (t.includes('ListNode')) {
+  if (/@param\s*\{ListNode\}/.test(t)) {
     // 这里跳过了0，因此取对应参数时要补上索引
-    transformParam.push(createLinkedList(topicParamsVarible[i-1]));
-  } else if (t.includes('TreeNode')) {
-    transformParam.push(createBinayTree(topicParamsVarible[i-1]));
-  } else {
-    transformParam.push(topicParamsVarible[i-1]);
+    transformParam.push(createLinkedList(topicParamsVarible[i-3]));
+  } else if (t.includes('@param {TreeNode}')) {
+    transformParam.push(createBinayTree(topicParamsVarible[i-3]));
+  } else if (t.includes('@param')) {
+    transformParam.push(topicParamsVarible[i-3]);
   }
 }
 
@@ -97,5 +97,11 @@ const res = topic(...transformParam);
 process.stderr.on('data', data => {
   console.log(chalk.green(`[ERROR]执行错误: ${chalk.red(data)}`));
 });
-console.log(chalk.green(`[INFO]执行结果为: ${chalk.blue(res)}`));
+process.on('uncaughtException', err => {
+  console.error('有一个未捕获的错误', err);
+  process.exit(1);
+})
+console.log(chalk.green(`[INFO]执行结果为: ${chalk.blue(JSON.stringify(res))}`));
 console.log(chalk.green(`[INFO]执行结束！`));
+
+process.exit(0);
