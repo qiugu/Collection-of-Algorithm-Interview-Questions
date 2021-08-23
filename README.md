@@ -1,5 +1,7 @@
 # Collection-of-Algorithm-Interview-Questions
 
+## 目前更新题目数量`24`道
+
 进击大厂算法面试题JavaScript版题解
 
 包括解题的方法，以及详细的注释。可以自己启动项目，尝试本项目提供的自动执行得到结果的脚本来测试你的方法。
