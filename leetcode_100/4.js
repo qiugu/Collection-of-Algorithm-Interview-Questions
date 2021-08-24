@@ -1,5 +1,5 @@
 /**
- * 寻找两个正序数组中的中位数
+ * 寻找两个正序数组中的中位数HOT
  * https://leetcode-cn.com/problems/median-of-two-sorted-arrays/
  * @param {*} nums1 
  * @param {*} nums2 

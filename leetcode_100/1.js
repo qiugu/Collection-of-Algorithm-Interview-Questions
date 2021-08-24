@@ -1,5 +1,5 @@
 /**
- * 两数之和
+ * 两数之和HOT
  * https://leetcode-cn.com/problems/two-sum/
  * @param {*} nums 
  * @param {*} target 

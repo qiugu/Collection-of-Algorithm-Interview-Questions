@@ -1,5 +1,5 @@
 /**
- * 括号生成
+ * 括号生成HOT
  * https://leetcode-cn.com/problems/generate-parentheses/
  * @param {*} n 
  * @returns 

@@ -1,5 +1,5 @@
 /**
- * 最长回文子串
+ * 最长回文子串HOT
  * https://leetcode-cn.com/problems/longest-palindromic-substring/
  * @param {*} s 
  */

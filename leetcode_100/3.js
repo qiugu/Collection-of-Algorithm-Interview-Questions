@@ -1,5 +1,5 @@
 /**
- * 无重复字符的最长子串
+ * 无重复字符的最长子串HOT
  * https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/
  * @param {*} s 
  */
