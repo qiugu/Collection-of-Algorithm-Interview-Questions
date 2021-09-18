@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const chalk = require('chalk');
 
-fs.readdir(path.resolve(__dirname, '../leetcode_100'), 'utf-8', (err, fileList) => {
+fs.readdir(path.resolve(__dirname, '../src/leetcode_100'), 'utf-8', (err, fileList) => {
   if (err) throw err;
   const doc = path.resolve(__dirname, '../README.md');
   fs.readFile(doc, 'utf-8', (err, content) => {
