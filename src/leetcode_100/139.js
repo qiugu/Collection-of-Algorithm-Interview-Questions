@@ -26,4 +26,4 @@ var wordBreak = function(s, wordDict) {
 
 console.log(wordBreak("l", ["leet", "code"]));
 
-// moduLe.exports = wordBreak;
+moduLe.exports = wordBreak;
