@@ -8,6 +8,21 @@
 
 ## 如何使用
 
+### 项目结构
+
+```
+|-- collection-of-algorightm-interview-questions
+    |-- scripts 脚本执行目录
+    |-- src 源码目录
+        |-- data-structure&algorithm 题解中涉及到的数据结构和算法
+        |-- leetcode_100 leetcode热门100道题
+        |-- utils 脚本的工具方法目录
+    |-- .gitignore
+    |-- LICENSE.md
+    |-- README.md
+    |-- package.json
+```
+
 ### 下载克隆项目
 
 ```sh
