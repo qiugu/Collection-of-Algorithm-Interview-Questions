@@ -16,6 +16,8 @@ var threeSum = function (nums) {
     if (nums[i] > 0) break;
     // 如果当前项的值和前一项相等，那么此时的结果也会和上次遍历的结果相同，所以需要去重
     if (i > 0 && nums[i] === nums[i - 1]) continue;
+    // 注意要是这么做的话，则不同位置相同的值会被过滤掉
+    // if (nums[i] === nums[i + 1]) continue;
     // 定义左右双指针
     let l = i + 1,r = len - 1;
     while (l < r) {

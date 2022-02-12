@@ -17,16 +17,18 @@ var letterCombinations = function(digits) {
       9: ['w','x','y','z']
   };
   const ans = [];
-  const dfs = (cur, index) => {
+  const backtrace = (cur, index) => {
       if (index === digits.length) {
           ans.push(cur);
           return;
       }
       const letters = map[digits[index]];
       for(let i = 0; i < letters.length; i++) {
-          dfs(cur + letters[i], index+1);
+        backtrace(cur + letters[i], index+1);
       }
   }
-  dfs('', 0);
+  backtrace('', 0);
   return ans;
 };
+
+console.log(letterCombinations(''));
