@@ -12,5 +12,18 @@ var groupAnagrams = function(strs) {
   return Object.keys(memo).map(key => memo[key]);
 };
 
+// 使用26个字母计数
+var groupAnagrams = function(strs) {
+  const memo = {};
+  for (let s of strs) {
+    const count = new Array(26).fill(0);
+    for (let ch of s) {
+      count[ch.charCodeAt() - 'a'.charCodeAt()]++;
+    }
+    memo[count] ? memo[count].push(s) : memo[count] = [s];
+  }
+  return [...Object.values(memo)];
+}
+
 const data = ["eat","tea","tan","ate","nat","bat"];
 console.log(groupAnagrams(data));
