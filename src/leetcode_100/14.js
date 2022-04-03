@@ -94,4 +94,4 @@ var longestCommonPrefix = function(strs) {
     return strs[0].slice(0, i);
 };
 
-console.log(longestCommonPrefix(["flower","flow","flight"]));
+console.log(longestCommonPrefix(["aaa","aa","aaa"]));
