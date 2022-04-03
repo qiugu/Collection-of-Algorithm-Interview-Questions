@@ -9,7 +9,7 @@ var groupAnagrams = function(strs) {
     const key = str.split('').sort().join('');
     memo[key] ? memo[key].push(str) : (memo[key] = [str]);
   }
-  return Object.keys(memo).map(key => memo[key]);
+  return Object.values(memo);
 };
 
 // 使用26个字母计数
@@ -22,7 +22,7 @@ var groupAnagrams = function(strs) {
     }
     memo[count] ? memo[count].push(s) : memo[count] = [s];
   }
-  return [...Object.values(memo)];
+  return Object.values(memo);
 }
 
 const data = ["eat","tea","tan","ate","nat","bat"];
