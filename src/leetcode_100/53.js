@@ -32,3 +32,47 @@ var maxSubArray = function(nums) {
   }
   return ans;
 }
+
+/**
+ * 分治法
+ */
+function Status(l, r, i, m) {
+  this.lSum = l; // [l,r]内以l为左端点的最大子段和
+  this.rSum = r; // [l,r]内以r为右端点的最大子段和
+  this.iSum = i; // [l,r]内的区间和
+  this.mSum = m; // [l,r]内的最大子段和
+}
+
+function pushUp(l, r) {
+  // m为[l,r]的中点,[l,m]为左半部分区间,[m+1,r]为右半部分区间
+  // [l,r]内的区段和就是左半部分区间的区间和加上右半部分的区间和
+  const iSum = l.iSum + r.iSum;
+  // [l,r]内l为左端点的区段和为
+  // 左半部分区间以l为左端点的最大区段
+  // 左半部分区间的区段和加上右半部分以m+1为左端点的最大区段和
+  // 取两者中的大值
+  const lSum = Math.max(l.lSum, l.iSum + r.lSum);
+  // 同理
+  const rSum = Math.max(r.rSum, r.iSum + l.rSum);
+  // 
+  const mSum = Math.max(Math.max(l.mSum, r.mSum), l.rSum + r.lSum);
+  return new Status(lSum, rSum, iSum, mSum);
+}
+
+function getInfo(a, l, r) {
+  // 区间长度为1的情况下，所有维护的区段和都是相等的
+  if (l === r) {
+    return new Status(a[l], a[l], a[l], a[l]);
+  }
+  const m = (l + r) >> 1;
+  const lSub = getInfo(a, l, m);
+  const rSub = getInfo(a, m+1, r);
+  return pushUp(lSub, rSub);
+}
+
+var maxSubArray = function(nums) {
+  return getInfo(nums, 0, nums.length - 1).mSum;
+}
+
+var nums = [-2,1,-3,4,-1,2,1,-5,4];
+console.log(maxSubArray(nums));
