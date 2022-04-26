@@ -29,6 +29,24 @@ var subsets = function (nums) {
   return ans;
 }
 
+/**
+ * 迭代方法
+ */
+var subsets = function(nums) {
+  const n = nums.length;
+  const ans = [];
+  for (let i = 0; i < (1 << n); i++) {
+    const t = [];
+    for (let j = 0; j < n; j++) {
+      if (i & (1 << j)) {
+        t.push(nums[j]);
+      }
+    }
+    ans.push(t);
+  }
+  return ans;
+}
+
 console.log(subsets([1,2,3]));
 
 module.exports = subsets;
