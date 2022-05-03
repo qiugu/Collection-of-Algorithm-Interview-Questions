@@ -18,4 +18,28 @@ var findMedianSortedArrays = function(nums1, nums2) {
   return ans;
 };
 
-// 2. 太难了，看不明白
+// 找到中位数的下标，使用双指针
+var findMedianSortedArrays = function(nums1, nums2) {
+  const m = nums1.length;
+  const n = nums2.length;
+  const len = m + n;
+  const mid = Math.floor(len / 2);
+  let l1 = 0, l2 = 0;
+  let midNum1 = 0, midNum2 = 0;
+  while (l1 < m || l2 < n) {
+    let cur = 0;
+    if (l1 >= m || nums2[l2] <= nums[l1]) {
+      cur = nums2[l2++];
+    } else if (l2 >= n || nums1[l1] < nums2[l2]) {
+      cur = nums1[l1++];
+    }
+    if (index === mid - 1) {
+      midNum1 = cur;
+    } else if (index === mid) {
+      midNum2 = cur;
+    }
+  }
+  return len % 2 === 0 ? (midNum1 + midNum2) / 2 : midNum2;
+}
+
+// 3. 太难了，看不明白
