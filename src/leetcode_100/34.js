@@ -16,7 +16,7 @@ var searchRange = function (nums, target) {
     while (l <= r) {
       const mid = l + ((r - l) >> 1);
       // 求左边界，不断的缩小右边界，达到锁定左边界的问题
-      if (nums[mid] < target || (left && (nums[mid] <= target))) {
+      if (nums[mid] < target || (left && (nums[mid] >= target))) {
         r = mid - 1;
       } else {
         l = mid + 1;
