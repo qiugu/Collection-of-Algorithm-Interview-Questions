@@ -16,6 +16,7 @@ var groupAnagrams = function(strs) {
 var groupAnagrams = function(strs) {
   const memo = {};
   for (let s of strs) {
+    // 使用每个字符在ascii表中的位置来作为hash表的key
     const count = new Array(26).fill(0);
     for (let ch of s) {
       count[ch.charCodeAt() - 'a'.charCodeAt()]++;
