@@ -24,10 +24,14 @@ var maxSubArray = function(nums) {
 
 // 动态规划只和前一个值有关
 var maxSubArray = function(nums) {
+  // 记录以i结尾的数组的最大值，并不是整个数组中连续子数组的最大值
   let prev = 0;
+  // 要想求得整个数组中的连续最大子数组，还需要比较每个以i结尾的数组的最大值中的最大值
   let ans = nums[0];
   for (let num of nums) {
+    // 记录以i结尾的数组的最大值
     prev = Math.max(prev + num, num);
+    // 记录每个以i结尾的最大值中的最大值
     ans = Math.max(prev, ans);
   }
   return ans;
