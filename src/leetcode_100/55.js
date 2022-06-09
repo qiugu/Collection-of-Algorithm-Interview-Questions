@@ -13,6 +13,7 @@ var canJump = function (nums) {
   for (let i = 0; i < n; i++) {
     // 当前位置的索引要在最大跳跃的范围内的时候，才能更新最大距离
     if (i <= maxDis) {
+      // 更新当前位置能够到达的最远距离
       maxDis = Math.max(i + nums[i], maxDis);
       if (maxDis >= n - 1) return true;
     }
