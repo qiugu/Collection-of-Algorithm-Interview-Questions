@@ -1,4 +1,6 @@
 /**
+ * 回文子川HOT
+ * https://leetcode.cn/problems/palindromic-substrings
  * @param {string} s
  * @return {number}
  */
