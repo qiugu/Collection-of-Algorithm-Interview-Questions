@@ -1,27 +1,27 @@
 /**
  * 最长递增子序列
  * https://leetcode-cn.com/problems/longest-increasing-subsequence/
- * @param {*} nums 
+ * @param {*} nums
  */
 var lengthOfLIS = function(nums) {
-  /**
-   * 动态规划
-   */
+  // 动态规划
+  // dp[i] 表示以第i个元素结尾的最长递增子序列，第i个元素需要在子序列中
+  // 状态转移方程 假设存在j，0 < j < i，并且nums[j] < nums[i]， 这样每个以j结尾的最长递增子序列为dp[j]，那么dp[i] = Math.max(dp[j]) + 1
+  // 这样就得到了以第i个元素结尾的任意长度的最长递增子序列，找到其中长度最大的即最终答案
   const n = nums.length;
-  const dp = [];
-  dp[0] = 1;
-  let ans = 0;
+  // 所有的以第i个元素结尾的最长递增子序列长度最少都是1，所以初始化为1
+  const dp = new Array(n).fill(1);
+  let ans = 1;
   for (let i = 1; i < n; i++) {
-    dp[i] = 1;
-    for (let j = 0; j < i; j++) {
-      if (nums[j] < nums[i]) {
-        dp[i] = Math.max(dp[i], dp[j]+1);
+      for (let j = 0; j < i; j++) {
+          if (nums[j] < nums[i]) {
+              dp[i] = Math.max(dp[i], dp[j] + 1);
+          }
       }
-    }
-    ans = Math.max(dp[i], ans);
+      ans = Math.max(ans, dp[i]);
   }
   return ans;
-}
+};
 
 var lengthOfLIS = function(nums) {
   /**
