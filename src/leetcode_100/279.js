@@ -1,20 +1,23 @@
 /**
  * 完全平方数
  * https://leetcode-cn.com/problems/perfect-squares/
- * @param {*} n 
- * @returns 
+ * @param {*} n
+ * @returns
  */
 // 1.动态规划
 var numSquares = function(n) {
-  const dp = [];
+  // dp[i] 表示和为i的完全平方数的最小个数
+  // 对于j，有 1 <= j * j <= i，尝试从[1, i]枚举出和为i的最小完全平方数(Σ(1,i)dp[i-j*j])+1
+  const dp = new Array(n + 1).fill(0);
   dp[0] = 0;
-  for (let i = 0; i <= n; i++) {
-      dp[i] = i;
+  for (let i = 1; i <= n; i++) {
+      // 假设当前和为i时，需要的个数为最多的情况
+      dp[i] = Number.MAX_SAFE_INTEGER;
       for (let j = 1; j * j <= i; j++) {
-          dp[i] = Math.min(dp[i], dp[i - j * j] + 1);
+          dp[i] = Math.min(dp[i], dp[i-j*j] + 1);
       }
   }
-  return dp[i];
+  return dp[n];
 };
 
 // 2. 数学公式推导：四平方和定理
