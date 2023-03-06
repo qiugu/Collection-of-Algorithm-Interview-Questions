@@ -1,6 +1,6 @@
 # Collection-of-Algorithm-Interview-Questions
 
-## 目前更新题目数量`86`道，`HOT`标记为热门题目
+## 目前更新题目数量`88`道，`HOT`标记为热门题目
 
 进击大厂算法面试题JavaScript版题解
 
